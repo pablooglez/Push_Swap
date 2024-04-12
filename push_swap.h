@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:49:50 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/11 20:37:56 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/12 21:43:53 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int			ft_input_correct(char **argv);
 int			ft_is_digit(char c);
 int			ft_is_sign(char c);
 int			ft_cmp_digitstr(const char *s1, const char *s2);
+int			ft_correct_output(char *argv);
 
 /*Another_Utils*/
 int			abs_number(int nb);
@@ -51,8 +52,24 @@ int			ft_atoi(const char *str);
 void		stack_free(t_stack **stack);
 void		error_exit(t_stack **stack_a, t_stack **stack_b);
 
+/* Inicialicación (Initiation) */
+t_stack		*fill_values_stack(int argc, char **argv);
+void		ft_assign_index(t_stack *stack_a, int argc);
 
+/*Funciones Stack (Stack)*/
+t_stack		*new_stack(int value);
+void		add_bottom_to_stack(t_stack **stack, t_stack *new);
+t_stack		*get_stack_bottom(t_stack *stack);
+t_stack		*get_stack_before_bottom(t_stack *stack);
+int			ft_size_stack(t_stack *stack);
 
+/*Algoritmos de Clasificación*/
+int			is_ordened(t_stack *stack);
+
+/*Operaciones*/
+void		do_sa(t_stack **stack_a);
+void		do_sb(t_stack **stack_b);
+void		do_ss(t_stack **stack_a, t_stack **stack_b);
 
 
 #endif
