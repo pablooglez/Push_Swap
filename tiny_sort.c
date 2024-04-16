@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 22:10:46 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/12 22:20:41 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:47:22 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,14 @@ static int	search_highest_index(t_stack *stack)
 void	tiny_sort(t_stack **stack)
 {
 	int	highest;
-	
+
 	if (!is_ordened(*stack))
 		return ;
 	highest = search_highest_index(*stack);
 	if ((*stack)->index == highest)
-		do_ra
+		do_ra(stack);
+	else if ((*stack)->next->index == highest)
+		do_rra(stack);
+	if ((*stack)->index > (*stack)-> next->index)
+		do_sa(stack);
 }

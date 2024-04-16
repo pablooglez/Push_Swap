@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:49:50 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/12 21:43:53 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/15 20:44:36 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <limits.h>
 
-typedef struct s_stack_node
+typedef struct s_stack
 {
 	int						value; //Número entero que debemos devolver//
 	int						index; /*Indice en la lista de todo los valores 
@@ -65,11 +65,14 @@ int			ft_size_stack(t_stack *stack);
 
 /*Algoritmos de Clasificación*/
 int			is_ordened(t_stack *stack);
+void		tiny_sort(t_stack **stack);
 
 /*Operaciones*/
 void		do_sa(t_stack **stack_a);
 void		do_sb(t_stack **stack_b);
 void		do_ss(t_stack **stack_a, t_stack **stack_b);
-
+void		do_ra(t_stack **stack_a);
+void		do_rb(t_stack **stack_b);
+void		do_rr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

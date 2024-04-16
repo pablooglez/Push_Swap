@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 21:39:46 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/12 22:08:29 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/15 19:05:58 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,3 @@ static void	swap(t_stack *stack)
 	stack->index = stack->next->index;
 	stack->next->index = tmp;
 }
-
