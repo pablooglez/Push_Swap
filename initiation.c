@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:23:25 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/12 21:43:39 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/16 15:43:05 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_stack	*fill_values_stack(int argc, char **argv)
 	en lugar de valores reales
 	
 	Values:		-5		7		0		2
-	Indexes:	[1]		[2]		[3]		[4]
+	Index:		[1]		[2]		[3]		[4]
 
 	.Los índices siempre iran asignados de mayor (tamaño del stack) al
 	menor (1)

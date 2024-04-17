@@ -6,7 +6,15 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 19:07:15 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/15 19:07:16 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/16 21:19:24 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void cost(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*tmp_a;
+	t_stack	*tmp_b;
+	
+}

@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:49:50 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/15 20:44:36 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/16 20:49:47 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ typedef struct s_stack
 	struct s_stack			*next; //Puntero al siguiente elemento de la lista
 }	t_stack;
 
-/*Comprobación de Entrada (Input_Check_Utils)*/
+/*Comprobación de Entrada (Input_Check_Utils) */
 int			ft_input_correct(char **argv);
 int			ft_is_digit(char c);
 int			ft_is_sign(char c);
 int			ft_cmp_digitstr(const char *s1, const char *s2);
 int			ft_correct_output(char *argv);
 
-/*Another_Utils*/
+/*Another_Utils */
 int			abs_number(int nb);
 void		ft_putstr(char *str);
 int			ft_atoi(const char *str);
@@ -56,23 +56,37 @@ void		error_exit(t_stack **stack_a, t_stack **stack_b);
 t_stack		*fill_values_stack(int argc, char **argv);
 void		ft_assign_index(t_stack *stack_a, int argc);
 
-/*Funciones Stack (Stack)*/
+/*Funciones Stack (Stack) */
 t_stack		*new_stack(int value);
 void		add_bottom_to_stack(t_stack **stack, t_stack *new);
 t_stack		*get_stack_bottom(t_stack *stack);
 t_stack		*get_stack_before_bottom(t_stack *stack);
 int			ft_size_stack(t_stack *stack);
 
-/*Algoritmos de Clasificación*/
+/*Algoritmos de Clasificación */
 int			is_ordened(t_stack *stack);
 void		tiny_sort(t_stack **stack);
 
-/*Operaciones*/
+/*Operaciones */
 void		do_sa(t_stack **stack_a);
 void		do_sb(t_stack **stack_b);
 void		do_ss(t_stack **stack_a, t_stack **stack_b);
 void		do_ra(t_stack **stack_a);
 void		do_rb(t_stack **stack_b);
 void		do_rr(t_stack **stack_a, t_stack **stack_b);
+void		do_pa(t_stack **stack_a);
+void		do_pb(t_stack **stack_b);
+void		do_rra(t_stack **stack_a);
+void		do_rrb(t_stack **stack_b);
+void		do_rrr(t_stack **stack_a, t_stack **stack_b);
+
+/* Posición*/
+int			get_lowest_index_position(t_stack **stack);
+void		get_target_position(t_stack **a, t_stack **b);
+
+/* Calcular Movimiento (Moving) */
+void		moving(t_stack **a, t_stack **b, int cost_a, int cost_b);
+
+/* Costes */
 
 #endif
