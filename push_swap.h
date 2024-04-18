@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:49:50 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/16 20:49:47 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/17 21:15:53 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int			ft_input_correct(char **argv);
 int			ft_is_digit(char c);
 int			ft_is_sign(char c);
 int			ft_cmp_digitstr(const char *s1, const char *s2);
-int			ft_correct_output(char *argv);
+int			ft_correct_output(char **argv);
 
 /*Another_Utils */
 int			abs_number(int nb);
@@ -64,8 +64,9 @@ t_stack		*get_stack_before_bottom(t_stack *stack);
 int			ft_size_stack(t_stack *stack);
 
 /*Algoritmos de Clasificación */
-int			is_ordened(t_stack *stack);
+int			is_ordered(t_stack *stack);
 void		tiny_sort(t_stack **stack);
+void		sort(t_stack **stack_a, t_stack **stack_b);
 
 /*Operaciones */
 void		do_sa(t_stack **stack_a);
@@ -74,8 +75,8 @@ void		do_ss(t_stack **stack_a, t_stack **stack_b);
 void		do_ra(t_stack **stack_a);
 void		do_rb(t_stack **stack_b);
 void		do_rr(t_stack **stack_a, t_stack **stack_b);
-void		do_pa(t_stack **stack_a);
-void		do_pb(t_stack **stack_b);
+void		do_pa(t_stack **stack_a, t_stack **stack_b);
+void		do_pb(t_stack **stack_a, t_stack **stack_b);
 void		do_rra(t_stack **stack_a);
 void		do_rrb(t_stack **stack_b);
 void		do_rrr(t_stack **stack_a, t_stack **stack_b);
@@ -88,5 +89,7 @@ void		get_target_position(t_stack **a, t_stack **b);
 void		moving(t_stack **a, t_stack **b, int cost_a, int cost_b);
 
 /* Costes */
+void		cost(t_stack **stack_a, t_stack **stack_b);
+void		most_cheaper_move(t_stack **stack_a, t_stack **stack_b);
 
 #endif

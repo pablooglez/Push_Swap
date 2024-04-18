@@ -6,11 +6,27 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 18:33:30 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/16 20:38:12 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/18 18:06:17 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* Push
+	.Pushea el elemento más alto del stack src al más alto del stack dest
+*/
+
+static void	push(t_stack **src, t_stack **dest)
+{
+	t_stack	*tmp;
+
+	if (*src == NULL)
+		return ;
+	tmp = (*src)->next;
+	(*src)->next = *dest;
+	*dest = *src;
+	*src = tmp;
+}
 
 /* Do_pa
 	.Pushea el elemento más alto del stack b al más alto del stack a
@@ -32,20 +48,4 @@ void	do_pb(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_a, stack_b);
 	ft_putstr("pb\n");
-}
-
-/* Push
-	.Pushea el elemento más alto del stack src al más alto del stack dest
-*/
-
-static void	push(t_stack **src, t_stack **dest)
-{
-	t_stack	*tmp;
-
-	if (*src == NULL)
-		return ;
-	tmp = (*src)->next;
-	(*src)->next = *dest;
-	*dest = *src;
-	*src = tmp;
 }

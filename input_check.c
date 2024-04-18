@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 20:41:00 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/12 18:17:16 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/17 21:05:28 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 	.Chekea si el argumento es un número (+1,1,-1 son todos números válidos)
 	.Devuelve 1 si el argumento es un número, si no lo contrario(0)
 */
+
 static	int	argument_is_number(char *argv)
 {
 	int	i;
@@ -36,7 +37,7 @@ static	int	argument_is_number(char *argv)
 	
 */
 
-static int	duplicate_numbers(char *argv)
+static int	duplicate_numbers(char **argv)
 {
 	int	i;
 	int	j;
@@ -55,6 +56,7 @@ static int	duplicate_numbers(char *argv)
 	}
 	return (0);
 }
+
 /* Argument_is_zero
 	.Chekea si el argumento es 0 para evitar duplicados de +0,0,-0
 	.Devuelve 1 si el argumento es cero, devuelve 0 si contiene cualquier 
@@ -74,12 +76,13 @@ static int	argument_is_zero(char *argv)
 		return (0);
 	return (1);
 }
+
 /* Ft_correct_output
 	.Chekea si los argumentos dados son todos números, sin duplicados
 	. Devuelve 1 si el argumento es válido, de lo contrario devuelve 0
 */
 
-int	ft_correct_output(char *argv)
+int	ft_correct_output(char **argv)
 {
 	int	i;
 	int	numbers_zeros;

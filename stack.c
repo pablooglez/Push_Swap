@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:46:21 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/12 22:18:54 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:43:58 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_stack	*get_stack_before_bottom(t_stack *stack)
 	.Crea un stack de elementos con el valor proporcionado
 	.Devuelve el nuevo elemento del stack creado
 */
+
 t_stack	*new_stack(int value)
 {
 	t_stack	*new;
@@ -73,6 +74,7 @@ void	add_bottom_to_stack(t_stack **stack, t_stack *new)
 	queue = get_stack_bottom(*stack);
 	queue->next = new;
 }
+
 /* Size_stack
 	.Devuelve el número de elementos de un stack
 */

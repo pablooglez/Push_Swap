@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:29:54 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/16 17:42:23 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:01:19 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	get_lowest_index_position(t_stack **stack)
 	tmp = *stack;
 	lowest_index = INT_MAX;
 	get_position(stack);
-	lowest_post = tmp->next;
+	lowest_post = tmp->pos;
 	while (tmp)
 	{
 		if (tmp-> index < lowest_index)
@@ -126,4 +126,3 @@ void	get_target_position(t_stack **a, t_stack **b)
 		tmp_b = tmp_b->next;
 	}
 }
-

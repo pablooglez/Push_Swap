@@ -6,16 +6,33 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 22:20:55 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/15 18:42:37 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/17 21:09:37 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Static void rotate
+	.El elemento superior de un stack se envia a la última posición
+*/
+
+static void	rotate(t_stack **stack)
+{
+	t_stack	*tmp;
+	t_stack	*queue;
+
+	tmp = *stack;
+	*stack = (*stack)->next;
+	queue = get_stack_bottom(*stack);
+	tmp->next = NULL;
+	queue->next = tmp;
+}
+
 /* Do_ra
 	.Envia un elemento del stack_a a la ultima posición
 
 */
+
 void	do_ra(t_stack **stack_a)
 {
 	rotate(stack_a);
@@ -41,23 +58,7 @@ void	do_rb(t_stack **stack_b)
 
 void	do_rr(t_stack **stack_a, t_stack **stack_b)
 {
-	swap(*stack_a);
-	swap(*stack_b);
+	rotate(stack_a);
+	rotate(stack_b);
 	ft_putstr("rr\n");
-}
-
-/* Static void rotate
-	.El elemento superior de un stack se envia a la última posición
-*/
-
-static void	rotate(t_stack **stack)
-{
-	t_stack	*tmp;
-	t_stack	*queue;
-
-	tmp = *stack;
-	*stack = (*stack)->next;
-	queue = get_stack_bottom(*stack);
-	tmp->next = NULL;
-	queue->next = tmp;
 }

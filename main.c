@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:49:19 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/15 20:20:16 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/18 17:35:42 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 	if (stack_size == 2 && !is_ordered(*stack_a))
 		do_sa(stack_a);
 	else if (stack_size == 3)
-		tiny_short(stack_a);
-	else if (stack_size > 3 && !is_ordened(*stack_a))
-		
+		tiny_sort(stack_a);
+	else if (stack_size > 3 && !is_ordered(*stack_a))
+		sort(stack_a, stack_b);
 }
 
 /* Main
@@ -49,7 +49,7 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 	.Cuando termina de ordenar los stacks, libera los stacks y finaliza
 */
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if (!ft_input_correct(argv))
+	if (!ft_correct_output(argv))
 		error_exit(NULL, NULL);
 	stack_b = NULL;
 	stack_a = fill_values_stack(argc, argv);

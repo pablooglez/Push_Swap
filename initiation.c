@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:23:25 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/16 15:43:05 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:51:36 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_stack	*fill_values_stack(int argc, char **argv)
 		if (number > INT_MAX || number < INT_MIN)
 			error_exit(&stack_a, NULL);
 		if (i == 1)
-			stack_a = stack_new((int)number);
+			stack_a = new_stack((int)number);
 		else
 			add_bottom_to_stack(&stack_a, new_stack((int)number));
 		i++;
@@ -81,4 +81,3 @@ void	ft_assign_index(t_stack *stack_a, int stack_size)
 			highest->index = stack_size;
 	}
 }
-

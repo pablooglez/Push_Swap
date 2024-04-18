@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 19:00:31 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/11 20:36:15 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/17 21:11:26 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int	abs_number(int nb)
 {
 	if (nb < 0)
 		return (nb * -1);
+	return (nb);
 }
+
 /* Ft_putstr
 	.Imprime los caracteres del string en una salida estandar
 */
@@ -37,6 +39,7 @@ void	ft_putstr(char *str)
 		i++;
 	}
 }
+
 /* Ft_atoi
 	.Convierte una cadena de caracteres de un string en un entero largo
 */
@@ -64,6 +67,7 @@ int	ft_atoi(const char *str)
 	}
 	return (number * isneg);
 }
+
 /* Stack_free
 	.Libera cada elemento de un stack dado y establece el puntero 
 	del stack en NULL
@@ -93,9 +97,9 @@ void	stack_free(t_stack **stack)
 void	error_exit(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a == NULL || *stack_a != NULL)
-		free_stack(stack_a);
+		stack_free(stack_a);
 	if (stack_b == NULL || *stack_b != NULL)
-		free_stack(stack_b);
+		stack_free(stack_b);
 	write(2, "Error\n", 6);
 	exit(1);
 }

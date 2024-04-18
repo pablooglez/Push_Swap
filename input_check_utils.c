@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 18:30:57 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/11 19:03:07 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:36:21 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	ft_is_sign(char c)
 {
 	return (c == '+' || c == '-');
 }
+
 /* Is_digit:
 	.Comprueba si el carácter es un digito
 	.Devolver 1 si el carácter es un digito, en caso contrario 0 */
@@ -28,6 +29,7 @@ int	ft_is_digit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
+
 /* Cmp_digistr
 	.Compara dos strings de dígitos para comprobar si son iguales o no
 	.Si uno de los strings comienza con signo '+', se ignora y comprueba el resto
@@ -42,7 +44,6 @@ int	ft_cmp_digitstr(const char *str1, const char *str2)
 
 	i = 0;
 	j = i;
-
 	if (str1[i] == '+')
 	{
 		if (str2[j] != '+')

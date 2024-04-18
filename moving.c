@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 19:07:26 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/16 20:35:34 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:10:08 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 	el stack habrá rotado lo máximo posible y la posición superior será la 
 	correcta
 */
+
 static void	rev_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 {
 	while (*cost_a < 0 && *cost_b < 0)
@@ -30,6 +31,7 @@ static void	rev_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 		do_rrr(a, b);
 	}
 }
+
 /* Rotate_both
 	.Rota ambos stacks a y b hasta que uno de ellos este en posición
 	.El coste dado es positivo ya que ambas posiciones están en la mitad 
@@ -48,6 +50,7 @@ static void	rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 		do_rr(a, b);
 	}
 }
+
 /* Rotate_a
 	.Rota el stack a hasta que este en su posición.
 	.Si el coste es negativo, el stack será rotate reverse, si es positivo será
@@ -70,6 +73,7 @@ static void	rotate_a(t_stack **a, int *cost)
 		}
 	}
 }
+
 /* Rotate_b
 	.Rota el stack b hasta que este en su posición
 	.Si el coste es negativo, el stack será rotate reverse, si es positivo será
@@ -92,7 +96,13 @@ static void	rotate_b(t_stack **b, int *cost)
 		}
 	}
 }
-/*
+/* Moving
+	.Elige que movimiento hacer para llevar el elemento del stack b a la
+	posición correcta del stack a
+	.Si los costes de mover los stacks a y b coinciden, ambas se rotarán e 
+	invertirán al mismo timepo.
+	.También podría rotarse por separado, antes de empujar finalmente el elemento
+	superior del stack b a la zona superior del stack a
 */
 
 void	moving(t_stack **a, t_stack **b, int cost_a, int cost_b)
@@ -103,7 +113,5 @@ void	moving(t_stack **a, t_stack **b, int cost_a, int cost_b)
 		rotate_both(a, b, &cost_a, &cost_b);
 	rotate_a(a, &cost_a);
 	rotate_b(b, &cost_b);
-	do_pa(a);
-	do_pb(b);
+	do_pa(a, b);
 }
-
