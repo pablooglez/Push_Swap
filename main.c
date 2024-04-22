@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:49:19 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/18 17:35:42 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:58:38 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,9 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if (!ft_correct_output(argv))
+	if (!ft_correct_output(argv, &stack_a))
 		error_exit(NULL, NULL);
 	stack_b = NULL;
-	stack_a = fill_values_stack(argc, argv);
 	stack_size = ft_size_stack (stack_a);
 	ft_assign_index(stack_a, stack_size + 1);
 	push_swap(&stack_a, &stack_b, stack_size);

@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 18:30:57 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/17 18:36:21 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/22 22:44:09 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,18 @@ int	ft_cmp_digitstr(const char *str1, const char *str2)
 	i = 0;
 	j = i;
 	if (str1[i] == '+')
+		i++;
+	if (str2[j] == '+')
+		j++;
+	if (str1[i] == '-' && str2[j] == '-')
 	{
-		if (str2[j] != '+')
-			i++;
+		i++;
+		j++;
 	}
-	else
-	{
-		if (str2[j] == '+')
-			j++;
-	}
+	while (str1[i] == '0')
+		i++;
+	while (str2[j] == '0')
+		j++;
 	while (str1[i] != '\0' && str2[j] != '\0' && str1[i] == str2[j])
 	{
 		i++;

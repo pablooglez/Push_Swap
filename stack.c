@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:46:21 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/17 18:43:58 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/23 00:46:29 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_stack	*new_stack(int value)
 {
 	t_stack	*new;
 
-	new = malloc(sizeof * new);
+	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->value = value;

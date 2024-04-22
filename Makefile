@@ -6,7 +6,7 @@
 #    By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 15:22:25 by pablogon          #+#    #+#              #
-#    Updated: 2024/04/18 18:34:57 by pablogon         ###   ########.fr        #
+#    Updated: 2024/04/22 21:43:12 by pablogon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,13 +27,13 @@ SRCS = main.c \
 	position.c cost.c moving.c \
 	another_utils.c
 
-OBJ = $(SRCS:.c=.o)
+OFILES = $(SRCS:.c=.o)
 INCLUDE = push_swap.h
 
 all: $(NAME)
 
 $(NAME):$(OFILES) $(INCLUDE)
-	$(LIB) $(NAME) $(OFILES) 
+	$(CC) -o $(NAME) $(OFILES) 
 
 bonus: $(NAME) $(BOFILES) $(INCLUDE)
 	$(LIB) $(NAME) $(BOFILES) 

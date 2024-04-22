@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:49:50 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/17 21:15:53 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/22 23:11:20 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -43,12 +44,12 @@ int			ft_input_correct(char **argv);
 int			ft_is_digit(char c);
 int			ft_is_sign(char c);
 int			ft_cmp_digitstr(const char *s1, const char *s2);
-int			ft_correct_output(char **argv);
+int			ft_correct_output(char **argv, t_stack **stack_a);
 
 /*Another_Utils */
 int			abs_number(int nb);
 void		ft_putstr(char *str);
-int			ft_atoi(const char *str);
+long int	ft_atoi(const char *str);
 void		stack_free(t_stack **stack);
 void		error_exit(t_stack **stack_a, t_stack **stack_b);
 

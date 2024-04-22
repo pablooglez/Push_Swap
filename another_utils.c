@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 19:00:31 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/17 21:11:26 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/04/23 01:02:36 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	ft_putstr(char *str)
 	.Convierte una cadena de caracteres de un string en un entero largo
 */
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
-	int	number;
-	int	isneg;
-	int	i;
+	long int	number;
+	int			isneg;
+	int			i;
 
 	number = 0;
 	i = 0;
@@ -77,9 +77,7 @@ void	stack_free(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (!stack || !(*stack))
-		return ;
-	while (*stack)
+	while (stack && *stack)
 	{
 		tmp = (*stack)->next;
 		free(*stack);
@@ -96,9 +94,9 @@ void	stack_free(t_stack **stack)
 
 void	error_exit(t_stack **stack_a, t_stack **stack_b)
 {
-	if (stack_a == NULL || *stack_a != NULL)
+	if (stack_a != NULL && *stack_a != NULL)
 		stack_free(stack_a);
-	if (stack_b == NULL || *stack_b != NULL)
+	if (stack_b != NULL && *stack_b != NULL)
 		stack_free(stack_b);
 	write(2, "Error\n", 6);
 	exit(1);
