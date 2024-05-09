@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 19:07:39 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/23 00:40:50 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/05/09 01:45:17 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 		else
 			do_ra(stack_a);
 	}
-	
 	while (stack_size - pushed > 3)
 	{
 		do_pb(stack_a, stack_b);

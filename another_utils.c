@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 19:00:31 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/23 01:02:36 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/05/09 02:41:28 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ long int	ft_atoi(const char *str)
 	number = 0;
 	i = 0;
 	isneg = 1;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
 	if (str[i] == '+')
 		i++;
 	else if (str[i] == '-')
@@ -73,7 +75,7 @@ long int	ft_atoi(const char *str)
 	del stack en NULL
 */
 
-void	stack_free(t_stack **stack)
+int	stack_free(t_stack **stack)
 {
 	t_stack	*tmp;
 
@@ -84,6 +86,7 @@ void	stack_free(t_stack **stack)
 		*stack = tmp;
 	}
 	*stack = NULL;
+	return (0);
 }
 
 /* Error_exit

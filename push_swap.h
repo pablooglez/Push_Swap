@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:49:50 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/23 16:27:46 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/05/09 02:13:06 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int			ft_correct_output(char **argv, t_stack **stack_a);
 int			abs_number(int nb);
 void		ft_putstr(char *str);
 long int	ft_atoi(const char *str);
-void		stack_free(t_stack **stack);
+int			stack_free(t_stack **stack);
 void		error_exit(t_stack **stack_a, t_stack **stack_b);
 
 /* Inicialicación (Initiation) */
@@ -92,5 +92,12 @@ void		moving(t_stack **a, t_stack **b, int cost_a, int cost_b);
 /* Costes */
 void		cost(t_stack **stack_a, t_stack **stack_b);
 void		most_cheaper_move(t_stack **stack_a, t_stack **stack_b);
+
+/*Split*/
+char		*ft_substr(char *s, int start, int len);
+char		**ft_split(char *s, char c);
+
+/*Ft_strjoin_c*/
+char		*ft_strjoin_c(char *str1, char *str2, char *sp, int md);
 
 #endif

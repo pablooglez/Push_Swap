@@ -6,7 +6,7 @@
 #    By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 15:22:25 by pablogon          #+#    #+#              #
-#    Updated: 2024/04/22 21:43:12 by pablogon         ###   ########.fr        #
+#    Updated: 2024/05/09 01:27:27 by pablogon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ SRCS = main.c \
 	push.c swap.c rotate.c reverse_rotate.c \
 	tiny_sort.c sort.c \
 	position.c cost.c moving.c \
-	another_utils.c
+	another_utils.c \
+	split.c \
+	ft_strjoin_c.c \
 
 OFILES = $(SRCS:.c=.o)
 INCLUDE = push_swap.h

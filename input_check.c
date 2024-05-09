@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 20:41:00 by pablogon          #+#    #+#             */
-/*   Updated: 2024/04/22 23:32:22 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/05/09 02:25:49 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static	int	argument_is_number(char *argv)
 	int	i;
 
 	i = 0;
-
 	if (argv[i] == '\0')
 		return (0);
 	if (ft_is_sign(argv[i]) && argv[i + 1] != '\0')
@@ -73,7 +72,6 @@ int	ft_correct_output(char **argv, t_stack **stack_a)
 	long int	number;
 
 	i = 1;
-
 	while (argv[i])
 	{
 		if (!argument_is_number(argv[i]))
