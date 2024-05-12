@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_c.c                                     :+:      :+:    :+:   */
+/*   ft_strjoin_cb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 01:01:03 by pablogon          #+#    #+#             */
-/*   Updated: 2024/05/09 01:34:49 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/05/09 19:34:08 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static int	ft_strlcpy(char *dest, char *src, int n)
 {

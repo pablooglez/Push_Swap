@@ -1,17 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 18:49:50 by pablogon          #+#    #+#             */
-/*   Updated: 2024/05/09 02:13:06 by pablogon         ###   ########.fr       */
+/*   Created: 2024/05/09 18:24:55 by pablogon          #+#    #+#             */
+/*   Updated: 2024/05/10 18:09:51 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10000
+# endif
 
 # include <stdbool.h>
 # include <stdlib.h>
@@ -97,7 +101,16 @@ void		most_cheaper_move(t_stack **stack_a, t_stack **stack_b);
 char		*ft_substr(char *s, int start, int len);
 char		**ft_split(char *s, char c);
 
-/*Ft_strjoin_c*/
+/* Ft_strjoin_c */
 char		*ft_strjoin_c(char *str1, char *str2, char *sp, int md);
+
+/* Another_Utils_bonus */
+int			ft_strncmp(char *str1, char *str2, unsigned int n);
+int			ft_is_space(char *str);
+void		free_array(char **array, char *total);
+void		execute_commands(t_stack *stack_a, t_stack *stack_b);
+void		execute_command(char *command, t_stack *stack_a, t_stack *stack_b);
+
+char		**reading_bytes(void);
 
 #endif
