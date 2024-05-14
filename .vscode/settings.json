@@ -1,5 +1,7 @@
 {
 	"files.associations": {
-		"checker.h": "c"
+		"checker.h": "c",
+		"push_swap.h": "c",
+		"chrono": "c"
 	}
 }

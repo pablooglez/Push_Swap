@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 18:24:11 by pablogon          #+#    #+#             */
-/*   Updated: 2024/05/12 19:14:51 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/05/13 21:10:03 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,17 @@ char	**reading_bytes(void)
 	char	*line;
 	char	buffer[2];
 	int		readed;
+	int		is_error;
 
+	is_error = 0;
 	line = ft_strjoin_c("", NULL, "", 0);
 	readed = read(0, &buffer, 1);
 	buffer[readed] = '\0';
 	while (readed > 0)
 	{
+		if ((buffer[0] >= 9 && buffer[0] <= 13 && buffer[0] != 10)
+			|| buffer[0] == 32)
+			is_error = 1;
 		line = ft_strjoin_c(line, buffer, "", 1);
 		readed = read(0, &buffer, 1);
 		if (readed < 0)
@@ -46,39 +51,41 @@ char	**reading_bytes(void)
 	}
 	if (!line)
 		return (NULL);
+	if (is_error)
+		error_exit(NULL, NULL);
 	return (ft_split(line, '\n'));
 }
 
-void	execute_command(char *command, t_stack *stack_a, t_stack *stack_b)
+void	execute_command(char *command, t_stack **stack_a, t_stack **stack_b)
 {
 	if (!ft_strncmp(command, "pb", 2))
-		do_pb(&stack_a, &stack_b);
+		do_pb(stack_a, stack_b);
 	else if (!ft_strncmp(command, "pa", 2))
-		do_pa(&stack_a, &stack_b);
+		do_pa(stack_a, stack_b);
 	else if (!ft_strncmp(command, "ra", 2))
-		do_ra(&stack_a);
+		do_ra(stack_a);
 	else if (!ft_strncmp(command, "rb", 2))
-		do_rb(&stack_b);
+		do_rb(stack_b);
 	else if (!ft_strncmp(command, "rra", 3))
-		do_rra(&stack_a);
+		do_rra(stack_a);
 	else if (!ft_strncmp(command, "rrb", 3))
-		do_rrb(&stack_b);
+		do_rrb(stack_b);
 	else if (!ft_strncmp(command, "rrr", 3))
-		do_rrr(&stack_a, &stack_b);
+		do_rrr(stack_a, stack_b);
 	else if (!ft_strncmp(command, "rr", 2))
-		do_rr(&stack_a, &stack_b);
+		do_rr(stack_a, stack_b);
 	else if (!ft_strncmp(command, "sa", 2))
-		do_sa(&stack_a);
+		do_sa(stack_a);
 	else if (!ft_strncmp(command, "sb", 2))
-		do_sb(&stack_b);
+		do_sb(stack_b);
 	else if (!ft_strncmp(command, "ss", 2))
-		do_ss(&stack_a, &stack_b);
+		do_ss(stack_a, stack_b);
 	else if (command && *command)
-		error_exit(&stack_a, &stack_b);
+		error_exit(stack_a, stack_b);
 	free(command);
 }
 
-void	 execute_commands(t_stack *stack_a, t_stack *stack_b)
+void	execute_commands(t_stack *stack_a, t_stack *stack_b)
 {
 	char	**commands;
 	int		i;
@@ -87,28 +94,13 @@ void	 execute_commands(t_stack *stack_a, t_stack *stack_b)
 	commands = reading_bytes();
 	while (commands && commands[i])
 	{
-		execute_command(commands[i++], stack_a, stack_b);
-		printf("----------\n");
-		t_stack	*curr;
-		curr = stack_a;
-		while(curr)
-		{
-			printf("%d\n", curr->value);
-			curr = curr->next;
-		}
+		if (!is_valid_cmd(commands[i++]))
+			error_exit(NULL, NULL);
 	}
+	i = 0;
+	while (commands && commands[i])
+		execute_command(commands[i++], &stack_a, &stack_b);
 	free(commands);
-	if (!stack_b)
-		printf("NULL\n");
-	printf("%d\n\n", is_ordered(stack_b));
-	
-	t_stack	*curr;
-	curr = stack_a;
-	while(curr)
-	{
-		printf("%d\n", curr->value);
-		curr = curr->next;
-	}
 	if (!is_ordered(stack_a) || stack_b)
 		write(2, "KO\n", 3);
 	else

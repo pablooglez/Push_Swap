@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 01:01:03 by pablogon          #+#    #+#             */
-/*   Updated: 2024/05/12 19:12:51 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/05/13 20:10:28 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,10 @@ char	*ft_strjoin_c(char *str1, char *str2, char *sp, int md)
 	}
 	len = ft_strlen(str1) + ft_strlen(str2) + ft_strlen(sp);
 	ret = malloc(sizeof(char) * (len + 1));
+	if (ret && str1)
+		ft_strlcpy(ret, str1, len + 1);
 	if (ret && str2 && sp)
 	{
-		ft_strlcpy(ret, str1, len + 1);
 		ft_strlcat(ret, sp, len + 1);
 		ft_strlcat(ret, str2, len + 1);
 	}

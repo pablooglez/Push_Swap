@@ -6,40 +6,29 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 18:49:50 by pablogon          #+#    #+#             */
-/*   Updated: 2024/05/09 19:10:07 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/05/14 17:37:41 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include <stdio.h>
 
 typedef struct s_stack
 {
-	int						value; //Número entero que debemos devolver//
-	int						index; /*Indice en la lista de todo los valores 
-									que deben ordenarse*/
-	int						pos; //Posición actual en la fila//
-	int						target_pos; /*Para elementos en el stack B, la 
-										posición de destino en el stack A 
-										donde debería estar*/
-	int						cost_a; /*Cuántas acciones costaría rotar el 
-									stack A para que el elemento en la posición 
-									objetivo llegue a la parte superior del 
-									stack A*/
-	int						cost_b; /*Cuántas acciones costaría rotar el stack 
-									B para que el elemento en la posición 
-									objetivo llegue a la parte superior 
-									del stack B*/
-	struct s_stack			*next; //Puntero al siguiente elemento de la lista
+	int						value;
+	int						index;
+	int						pos;
+	int						target_pos;
+	int						cost_a;
+	int						cost_b;
+	struct s_stack			*next;
 }	t_stack;
 
-/*Comprobación de Entrada (Input_Check_Utils) */
+/* (Input_Check_Utils) */
 int			ft_input_correct(char **argv);
 int			ft_is_digit(char c);
 int			ft_is_sign(char c);
@@ -53,23 +42,23 @@ long int	ft_atoi(const char *str);
 int			stack_free(t_stack **stack);
 void		error_exit(t_stack **stack_a, t_stack **stack_b);
 
-/* Inicialicación (Initiation) */
+/* (Initiation) */
 t_stack		*fill_values_stack(int argc, char **argv);
 void		ft_assign_index(t_stack *stack_a, int argc);
 
-/*Funciones Stack (Stack) */
+/* (Stack) */
 t_stack		*new_stack(int value);
 void		add_bottom_to_stack(t_stack **stack, t_stack *new);
 t_stack		*get_stack_bottom(t_stack *stack);
 t_stack		*get_stack_before_bottom(t_stack *stack);
 int			ft_size_stack(t_stack *stack);
 
-/*Algoritmos de Clasificación */
+/* Sorting Algorithms */
 int			is_ordered(t_stack *stack);
 void		tiny_sort(t_stack **stack);
 void		sort(t_stack **stack_a, t_stack **stack_b);
 
-/*Operaciones */
+/* Operators */
 void		do_sa(t_stack **stack_a);
 void		do_sb(t_stack **stack_b);
 void		do_ss(t_stack **stack_a, t_stack **stack_b);
@@ -82,14 +71,14 @@ void		do_rra(t_stack **stack_a);
 void		do_rrb(t_stack **stack_b);
 void		do_rrr(t_stack **stack_a, t_stack **stack_b);
 
-/* Posición*/
+/* Position */
 int			get_lowest_index_position(t_stack **stack);
 void		get_target_position(t_stack **a, t_stack **b);
 
-/* Calcular Movimiento (Moving) */
+/* (Moving) */
 void		moving(t_stack **a, t_stack **b, int cost_a, int cost_b);
 
-/* Costes */
+/* Costs */
 void		cost(t_stack **stack_a, t_stack **stack_b);
 void		most_cheaper_move(t_stack **stack_a, t_stack **stack_b);
 

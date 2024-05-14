@@ -6,7 +6,7 @@
 /*   By: pablogon <pablogon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 20:41:00 by pablogon          #+#    #+#             */
-/*   Updated: 2024/05/09 22:00:53 by pablogon         ###   ########.fr       */
+/*   Updated: 2024/05/13 21:10:42 by pablogon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,31 @@ int	ft_correct_output(char **argv, t_stack **stack_a)
 	if (duplicate_numbers(stack_a))
 		return (0);
 	return (1);
+}
+
+int	is_valid_cmd(char *command)
+{
+	if (ft_strncmp(command, "pb", 2))
+		return (1);
+	else if (ft_strncmp(command, "pa", 2))
+		return (1);
+	else if (ft_strncmp(command, "ra", 2))
+		return (1);
+	else if (ft_strncmp(command, "rb", 2))
+		return (1);
+	else if (ft_strncmp(command, "rra", 3))
+		return (1);
+	else if (ft_strncmp(command, "rrb", 3))
+		return (1);
+	else if (ft_strncmp(command, "rrr", 3))
+		return (1);
+	else if (ft_strncmp(command, "rr", 2))
+		return (1);
+	else if (ft_strncmp(command, "sa", 2))
+		return (1);
+	else if (ft_strncmp(command, "sb", 2))
+		return (1);
+	else if (ft_strncmp(command, "ss", 2))
+		return (1);
+	return (0);
 }
